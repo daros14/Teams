@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Equipos Primera Nacional -->
+    <string-array name="primera_nacional_lat_lon_array">
+        <item>40.359306, -3.809959</item>
+        <item>40.402649, -3.886470</item>
+        <item>40.443280, -3.470551</item>
+        <item>40.396862, -3.649676</item>
+        <item>40.228473, -3.769431</item>
+        <item>40.444735, -3.811319</item>
+        <item>40.491564, -3.882514</item>
+        <item>40.491564, -3.882514</item>
+        <item>40.491564, -3.882514</item>
+        <item>40.491564, -3.882514</item>
+        <item>40.491564, -3.882514</item>
+        <item>40.491564, -3.882514</item>
+        <item>40.491564, -3.882514</item>
+    </string-array>
+</resources>

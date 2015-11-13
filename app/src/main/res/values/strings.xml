@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Teams</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_equipo">Equipo</string>
+    <string name="pick_a_team">Pick a team:</string>
+    <string name="court_address">Court Address</string>
+    <string name="arena_address">Arena Address</string>
+    <string name="jerseys">Jerseys</string>
+    <string name="map">Map</string>
 </resources>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+
+    <!-- Objeto con Scroll -->
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/app_bar"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="15dp">
+
+            <!-- Card Direccion -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_margin">
+
+                <LinearLayout
+                    style="@style/Widget.CardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!--Etiqueta Perfil -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/court_address"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                    <!--Texto de ejemplo-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/arena_address"
+                        android:id="@+id/equipo_direccion"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- Card JERSEYS-->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_margin"
+                android:layout_marginLeft="@dimen/card_margin"
+                android:layout_marginRight="@dimen/card_margin">
+
+                <LinearLayout
+                    style="@style/Widget.CardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/jerseys"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/equipo_camiseta" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- Card Mapa -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_margin"
+                android:layout_marginLeft="@dimen/card_margin"
+                android:layout_marginRight="@dimen/card_margin"
+                android:id="@+id/card_mapa">
+
+                <LinearLayout
+                    style="@style/Widget.CardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- MAP -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/map"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:layout_marginBottom="5dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <include
+                            android:id="@+id/map_include"
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            layout="@layout/include_map_fragment"
+                            android:layout_alignParentTop="true"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:text=""
+                            android:id="@+id/card_mapa_capa" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <!-- App Bar -->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!-- Collapser -->
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="28dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <!-- Toolbar -->
+            <android.support.v7.widget.Toolbar
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <!-- SHARE BUTTON -->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_margin="@dimen/fab_margin"
+        app:borderWidth="0dp"
+        app:elevation="16dp"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|right|end"
+        android:src="@drawable/ic_share_white_48dp"
+        android:scaleType="fitXY"/>
+
+</android.support.design.widget.CoordinatorLayout>

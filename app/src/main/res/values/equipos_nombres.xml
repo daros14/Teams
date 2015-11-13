@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Equipos Primera Nacional -->
+    <string-array name="primera_nacional_nombres_array">
+        <item>ZUMOSOL ALCORCON BASKET</item>
+        <item>ADC BOADILLA</item>
+        <item>TBS ACADEMY</item>
+        <item>TAJAMAR</item>
+        <item>LA PAZ C.D.</item>
+        <item>POZUELO C.B.</item>
+        <item>C.B. LAS ROZAS</item>
+        <item>U.B.VILLALBA C.C. LOS VALLES</item>
+        <item>EUROCOLEGIO CASVI</item>
+        <item>COSLADA C.B. PLURAL ASESORES</item>
+        <item>DAGANZO C.B.</item>
+        <item>BALONCESTO ARISTOS</item>
+    </string-array>
+</resources>

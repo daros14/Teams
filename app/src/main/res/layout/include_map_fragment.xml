@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://scheams.android.com/apk/res-auto"
+    android:id="@+id/map"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    class="com.google.android.gms.maps.SupportMapFragment"
+    map:cameraBearing="112.5"/>-->
+<fragment
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://scheams.android.com/apk/res-auto"
+    android:id="@+id/map"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:name="com.google.android.gms.maps.MapFragment"
+    />
+    <!-- NO FUNCIONA map:cameraTargetLat="40.416741"
+    map:cameraTargetLng="-3.703302"
+    map:cameraZoom="13"
+    map:mapType="normal"
+    map:liteMode="true" -->
