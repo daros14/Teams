@@ -35,7 +35,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/court_address"
+                        android:text="@string/arena_address"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title" />
                     <!--Texto de ejemplo-->
                     <TextView
@@ -64,7 +64,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/jerseys"
+                        android:text="@string/team_jerseys"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
                     <TextView
