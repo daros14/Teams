@@ -7,6 +7,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -154,9 +156,8 @@ public class TeamActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void compartirUbicacion(){
 
         String uri = null;
-        //uri = "http://maps.google.com/maps?saddr=" +lat+","+lon;
         uri = "http://maps.google.com/maps?q="+lat +","+lon;
-        Log.i(LOG_TAG,"URI="+uri);
+        //Log.i(LOG_TAG,"URI="+uri);
 
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
@@ -164,5 +165,28 @@ public class TeamActivity extends AppCompatActivity implements OnMapReadyCallbac
         sharingIntent.putExtra(Intent.EXTRA_SUBJECT, ShareSub);
         sharingIntent.putExtra(Intent.EXTRA_TEXT, uri);
         startActivity(Intent.createChooser(sharingIntent, "Share"));
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_team, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == R.id.share){
+            compartirUbicacion();
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 }
