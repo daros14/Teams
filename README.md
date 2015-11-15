@@ -3,6 +3,7 @@ TEAMS
 A simple Android material design app which lets you retrieve information from your local basketball league teams
 
 Updated (15/11/2015):
+
 Fix layout 'hardcoded' strings
 Center Main Activity text
 Team menu added with 'Share' option
