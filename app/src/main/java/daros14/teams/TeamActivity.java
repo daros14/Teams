@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,11 +24,11 @@ import java.net.URLEncoder;
 
 public class TeamActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private final static String EQUIPO = "daros14.teams.equipo";
-    private static final String DIRECCION = "daros14.teams.direccion";
+    private final static String TEAM = "daros14.teams.team";
+    private static final String ADDRESS = "daros14.teams.address";
     private static final String LATLON = "daros14.teams.latlon";
     private static final String JERSEY = "daros14.teams.jersey";
-    private final static String LOG_TAG = "Planetas";
+
     private GoogleMap m_map;
     private CameraPosition camera;
     private String latlon;
@@ -52,8 +51,6 @@ public class TeamActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        //Gestionamos BACK ARROW
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,36 +63,35 @@ public class TeamActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View view) {
 
-                //Compartir ubicacion
+                //Share location
                 compartirUbicacion();
             }
         });
 
-        TextView textView_nombre = (TextView)findViewById(R.id.equipo_nombre);
+        //TextView textView_nombre = (TextView)findViewById(R.id.equipo_nombre);
         TextView textView_direccion = (TextView)findViewById(R.id.equipo_direccion);
-        //TextView textView_latlon = (TextView)findViewById(R.id.equipo_latlon);
         TextView textView_jersey = (TextView)findViewById(R.id.equipo_camiseta);
 
         //Recogemos valor de intent
         Intent intent = this.getIntent();
         if (intent == null){
-            Log.i(LOG_TAG, "La actividad no se ha llamado mediante un intent.");
+            //Log.i(LOG_TAG, "La actividad no se ha llamado mediante un intent.");
         }
         else{
             if (intent.getStringExtra(LATLON) != null)
                 latlon =intent.getStringExtra(LATLON);
             else
                 latlon = "40.416718, -3.703603";
-            direccion = intent.getStringExtra(DIRECCION);
-            nombre = intent.getStringExtra(EQUIPO);
+            direccion = intent.getStringExtra(ADDRESS);
+            nombre = intent.getStringExtra(TEAM);
             jersey = intent.getStringExtra(JERSEY);
 
-            setTitle(intent.getStringExtra(EQUIPO));
-            textView_direccion.setText(intent.getStringExtra(DIRECCION));
+            setTitle(intent.getStringExtra(TEAM));
+            textView_direccion.setText(intent.getStringExtra(ADDRESS));
             textView_jersey.setText(intent.getStringExtra(JERSEY));
         }
 
-        //Asignamos y declaramos mapFragment
+        //Declare mapFragment
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
@@ -157,7 +153,6 @@ public class TeamActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         String uri = null;
         uri = "http://maps.google.com/maps?q="+lat +","+lon;
-        //Log.i(LOG_TAG,"URI="+uri);
 
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
@@ -185,7 +180,6 @@ public class TeamActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (id == R.id.share){
             compartirUbicacion();
         }
-
 
         return super.onOptionsItemSelected(item);
     }

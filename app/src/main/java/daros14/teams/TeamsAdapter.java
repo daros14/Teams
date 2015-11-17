@@ -21,12 +21,12 @@ import java.util.List;
 // Note that we specify the custom ViewHolder which gives us access to our views
 public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.ViewHolder> {
 
-    private final static String EQUIPO = "daros14.teams.equipo";
-    private static final String DIRECCION = "daros14.teams.direccion";
+    private final static String TEAM = "daros14.teams.team";
+    private static final String ADDRESS = "daros14.teams.address";
     private static final String LATLON = "daros14.teams.latlon";
     private static final String JERSEY = "daros14.teams.jersey";
     private Context mContext;
-    private List<Team> mEquipos;
+    private List<Team> mTeams;
 
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
@@ -63,8 +63,8 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.ViewHolder> 
             //Calling activity Equipo from Adapter
             //Creamos intent para abrir equipo
             Intent intent = new Intent(contxt, TeamActivity.class);
-            intent.putExtra(EQUIPO, team.getName());
-            intent.putExtra(DIRECCION, team.getAddress());
+            intent.putExtra(TEAM, team.getName());
+            intent.putExtra(ADDRESS, team.getAddress());
             intent.putExtra(LATLON, team.getLatLon());
             intent.putExtra(JERSEY, team.getJersey());
 
@@ -76,7 +76,7 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.ViewHolder> 
 
     // Pass in the contact array into the constructor
     public TeamsAdapter(List<Team> equipos, Context context) {
-        mEquipos = equipos;
+        mTeams = equipos;
         mContext = context;
     }
 
@@ -90,7 +90,7 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.ViewHolder> 
         View contactView = inflater.inflate(R.layout.equipo, parent, false);
 
         // Return a new holder instance
-        ViewHolder viewHolder = new ViewHolder(context, contactView, mEquipos);
+        ViewHolder viewHolder = new ViewHolder(context, contactView, mTeams);
         return viewHolder;
     }
 
@@ -98,7 +98,7 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(TeamsAdapter.ViewHolder viewHolder, int position) {
         // Get the data model based on position
-        Team equipo = mEquipos.get(position);
+        Team equipo = mTeams.get(position);
 
         // Set item views based on the data model
         TextView textView = viewHolder.teamNameView;
@@ -116,7 +116,64 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.ViewHolder> 
     // Return the total count of items
     @Override
     public int getItemCount() {
-        return mEquipos.size();
+        return mTeams.size();
+    }
+
+    public List<Team> getmTeams (){
+        return this.mTeams;
+    }
+
+    /////SEARCHVIEW METHODS////
+
+    public void animateTo(List<Team> tems) {
+        applyAndAnimateRemovals(tems);
+        applyAndAnimateAdditions(tems);
+        applyAndAnimateMovedItems(tems);
+    }
+
+    private void applyAndAnimateRemovals(List<Team> newModels) {
+        for (int i = mTeams.size() - 1; i >= 0; i--) {
+            final Team model = mTeams.get(i);
+            if (!newModels.contains(model)) {
+                removeItem(i);
+            }
+        }
+    }
+
+    private void applyAndAnimateAdditions(List<Team> newModels) {
+        for (int i = 0, count = newModels.size(); i < count; i++) {
+            final Team model = newModels.get(i);
+            if (!mTeams.contains(model)) {
+                addItem(i, model);
+            }
+        }
+    }
+
+    private void applyAndAnimateMovedItems(List<Team> newModels) {
+        for (int toPosition = newModels.size() - 1; toPosition >= 0; toPosition--) {
+            final Team model = newModels.get(toPosition);
+            final int fromPosition = mTeams.indexOf(model);
+            if (fromPosition >= 0 && fromPosition != toPosition) {
+                moveItem(fromPosition, toPosition);
+            }
+        }
+    }
+
+    public Team removeItem(int position) {
+        final Team model = mTeams.remove(position);
+        notifyItemRemoved(position);
+        return model;
+    }
+
+    public void addItem(int position, Team team) {
+        mTeams.add(position, team);
+        notifyItemInserted(position);
+    }
+
+    public void moveItem(int fromPosition, int toPosition) {
+        final Team team = mTeams.remove(fromPosition);
+        mTeams.add(toPosition, team);
+        notifyItemMoved(fromPosition, toPosition);
     }
 
 }

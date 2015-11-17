@@ -19,7 +19,7 @@ public class Team {
         mJersey = jersey;
         //mCapitalLetter = name.substring(0).toUpperCase();
         mCapitalLetter = name.substring(0, 1).toUpperCase();
-        Log.i("Equipo", mCapitalLetter);
+        //Log.i("Equipo", mCapitalLetter);
     }
 
     public String getName() {
