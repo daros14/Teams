@@ -2,6 +2,10 @@ TEAMS
 
 A simple Android material design app which lets you retrieve information from your local basketball league teams
 
+Updated (17/11/2015)
+Added SearchView to RecyclerView to let search in the Teams list.
+Tutorial code by: https://github.com/Wrdlbrnft/Searchable-RecyclerView-Demo
+
 Updated (15/11/2015):
 
 Fix layout 'hardcoded' strings. 
