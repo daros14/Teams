@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--All regional categories-->
+    <string-array name="categories">
+        <item>1ª Nacional</item>
+        <item>1ª Autonomica A</item>
+        <item>1ª Autonomica B</item>
+        <item>2ª Autonomica A</item>
+        <item>2ª Autonomica B</item>
+    </string-array>
+
+</resources>

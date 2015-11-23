@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--Equipos Primera Nacional -->
+    <!--First Division Teams -->
     <string-array name="primera_nacional_nombres_array">
         <item>ZUMOSOL ALCORCON BASKET</item>
         <item>ADC BOADILLA</item>

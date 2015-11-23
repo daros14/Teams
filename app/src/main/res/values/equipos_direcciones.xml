@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--Equipos Primera Nacional -->
+    <!--First Division Teams Address-->
     <string-array name="primera_nacional_direcciones_array">
         <item>AVDA. LOS CASTILLOS, S/N, ALCORCÓN</item>
         <item>MIGUEL ANGEL CANTERO OLIVA, 4, BOADILLA DEL MONTE</item>

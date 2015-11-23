@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primera Nacional Jerseys-->
+
+    <!--First Division Teams Jerseys Colors-->
     <string-array name="primera_nacional_jerseys_array">
         <item>Azul / Blanca</item>
         <item>Verde / Negra</item>

@@ -124,7 +124,6 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.ViewHolder> 
     }
 
     /////SEARCHVIEW METHODS////
-
     public void animateTo(List<Team> tems) {
         applyAndAnimateRemovals(tems);
         applyAndAnimateAdditions(tems);

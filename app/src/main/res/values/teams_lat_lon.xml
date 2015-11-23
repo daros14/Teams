@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--Equipos Primera Nacional -->
+
+    <!--First Division Team Arenas Location-->
     <string-array name="primera_nacional_lat_lon_array">
         <item>40.359306, -3.809959</item>
         <item>40.402649, -3.886470</item>

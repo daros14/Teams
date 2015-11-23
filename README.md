@@ -2,6 +2,11 @@ TEAMS
 
 A simple Android material design app which lets you retrieve information from your local basketball league teams
 
+Updated (24/11/2015)
+Categories selection sidebar added.
+Added Sliding SideBar, known as "Hamburger" using TreeHouse repositorie: https://github.com/treehouse/android-navigation-drawer-final.git
+Fixed some bad translations at strings.xml.
+
 Updated (17/11/2015)
 Added SearchView to RecyclerView to let search in the Teams list.
 Tutorial code by: https://github.com/Wrdlbrnft/Searchable-RecyclerView-Demo
