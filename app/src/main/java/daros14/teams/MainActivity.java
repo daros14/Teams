@@ -31,11 +31,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private static final String LATLON = "daros14.teams.latlon";
     private static final String JERSEY = "daros14.teams.jersey";
 
-    Spinner spinner;
-    ArrayAdapter arrayNombresAdapter;
-    ArrayAdapter arrayDireccionesAdapter;
-    ArrayAdapter arrayLatLonAdapter;
-    ArrayAdapter arrayJerseysAdapter;
     boolean onload=false;
     Context context;
     RecyclerView teams_list;
@@ -57,17 +52,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Names
-        arrayNombresAdapter = ArrayAdapter.createFromResource(this, R.array.primera_nacional_nombres_array,android.R.layout.simple_spinner_item);
-        //Direcciones
-        arrayDireccionesAdapter = ArrayAdapter.createFromResource(this, R.array.primera_nacional_direcciones_array,android.R.layout.simple_spinner_item);
-        //Lat Lon
-        arrayLatLonAdapter = ArrayAdapter.createFromResource(this, R.array.primera_nacional_lat_lon_array,android.R.layout.simple_spinner_item);
-        //Jerseys Colors
-        arrayJerseysAdapter = ArrayAdapter.createFromResource(this, R.array.primera_nacional_jerseys_array,android.R.layout.simple_spinner_item);
-
-
-        // Create adapter passing in the sample user data
+        // Create teams adapter with sample data
         adapter = new TeamsAdapter(new TeamsData(context).getTeams(), context);
 
         // Lookup the recyclerview in activity layout
@@ -96,25 +81,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
         // An item was selected. You can retrieve the selected item using
-
         if (!onload){
             onload = true;
-        }
-        else {
-            //Creamos intent para abrir equipo
-            Intent intent = new Intent(this, TeamActivity.class);
-            intent.putExtra(TEAM, parent.getItemAtPosition(pos).toString());
-            String prueba = parent.getItemAtPosition(pos).toString();
-            String prueba2 = arrayDireccionesAdapter.getItem(pos).toString();
-            intent.putExtra(ADDRESS, arrayDireccionesAdapter.getItem(pos).toString());
-            intent.putExtra(LATLON, arrayLatLonAdapter.getItem(pos).toString());
-            String aux =  arrayJerseysAdapter.getItem(pos).toString();
-            intent.putExtra(JERSEY, aux);
-
-            if (intent.resolveActivity(getPackageManager()) != null) {
-                startActivity(intent);
-                overridePendingTransition(R.anim.enter, R.anim.exit);
-            }
         }
     }
 
