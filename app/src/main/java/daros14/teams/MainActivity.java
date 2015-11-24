@@ -1,7 +1,6 @@
 package daros14.teams;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
@@ -18,18 +17,10 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, SearchView.OnQueryTextListener {
-
-    private final static String TEAM = "daros14.teams.team";
-    private static final String ADDRESS = "daros14.teams.address";
-    private static final String LATLON = "daros14.teams.latlon";
-    private static final String JERSEY = "daros14.teams.jersey";
 
     boolean onload=false;
     Context context;
@@ -42,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private String mActivityTitle;
+    private List<Team> list_teams;
+    private List<Team> list_teams_backup;
+    private String category = "1ª Nacional";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +47,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setSupportActionBar(toolbar);
 
         // Create teams adapter with sample data
-        adapter = new TeamsAdapter(new TeamsData(context).getTeams(), context);
+        list_teams = new TeamsData(context,"1ª Nacional").getTeams();
+        list_teams_backup = new TeamsData(context,"1ª Nacional").getTeams();
+        adapter = new TeamsAdapter(list_teams, context);
 
         // Lookup the recyclerview in activity layout
         teams_list = (RecyclerView) findViewById(R.id.recycler_view);
@@ -108,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public boolean onQueryTextChange(String query) {
-        final List<Team> filteredModelList = filter(new TeamsData(context).getTeams(), query);
+        final List<Team> filteredModelList = filter(list_teams_backup, query);
         adapter.animateTo(filteredModelList);
         teams_list.scrollToPosition(0);
         return true;
@@ -167,7 +163,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, mAdapter.getItem(position).toString(), Toast.LENGTH_SHORT).show();
+                //Reset Recycler View data with new values//
+                // Create teams adapter with sample data
+                category = mAdapter.getItem(position).toString();
+                list_teams = new TeamsData(context,mAdapter.getItem(position).toString()).getTeams();
+                list_teams_backup = new TeamsData(context,mAdapter.getItem(position).toString()).getTeams();
+                adapter = new TeamsAdapter(list_teams, context);
+
+                // Lookup the recyclerview in activity layout
+                teams_list = (RecyclerView) findViewById(R.id.recycler_view);
+                // Attach the adapter to the recyclerview to populate items
+                teams_list.setAdapter(adapter);
+                // Set layout manager to position the items
+                teams_list.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                //Decorate each Element
+                RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL_LIST);
+                teams_list.addItemDecoration(itemDecoration);
+                ////////////////////////////////////////////
+
                 mDrawerLayout.closeDrawer(mDrawerList);
             }
         });
@@ -189,7 +202,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                getSupportActionBar().setTitle(mActivityTitle);
+                String aux = mActivityTitle + " - "+ category;
+                //getSupportActionBar().setTitle(aux);
+                getSupportActionBar().setTitle(category);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };

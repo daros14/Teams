@@ -17,4 +17,19 @@
         <item>AVDA. JUAN CARLOS I, 12, GETAFE</item>
     </string-array>
 
+    <string-array name="primera_autonomica_a_direcciones_array">
+        <item>AVDA. LOS CASTILLOS, S/N, ALCORCÓN</item>
+        <item>MIGUEL ANGEL CANTERO OLIVA, 4, BOADILLA DEL MONTE</item>
+        <item>JOAQUIN BLUME, S/N, TORREJÓN DE ARDOZ</item>
+        <item>PIO FELIPE, 12, MADRID</item>
+        <item>AVDA. JUAN CARLOS I, S/N, PARLA</item>
+        <item>CAMINO DE LAS HUERTAS, 38, POZUELO DE ALARCÓN</item>
+        <item>COMUNIDAD DE LA RIOJA, 4, LAS ROZAS</item>
+        <item>COMANDANTE JUAN ANTONIO TERRON, S/N, COLLADO VILLALBA</item>
+        <item>AVDA. CASTILLA, 27, VILLAVICIOSA DE ODÓN</item>
+        <item>AVDA. EL PLANTIO, S/N, COSLADA</item>
+        <item>DON QUIJOTE DE LA MANCHA, 1, DAGANZO DE ARRIBA</item>
+        <item>AVDA. JUAN CARLOS I, 12, GETAFE</item>
+    </string-array>
+
 </resources>

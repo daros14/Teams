@@ -2,6 +2,12 @@ TEAMS
 
 A simple Android material design app which lets you retrieve information from your local basketball league teams
 
+Updated (25/11/2015)
+Added new Category "1ª Autonomica A"
+Refresh data from Recycler View when new category selected on Sliding Sidebar
+SearchView data updated when new category selected on Sliding Sidebar
+ActionBar Title updated when new category selected on Sliding Sidebar
+
 Updated (24/11/2015)
 Categories selection sidebar added.
 Added Sliding SideBar, known as "Hamburger" using TreeHouse repositorie: https://github.com/treehouse/android-navigation-drawer-final.git

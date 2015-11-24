@@ -16,4 +16,19 @@
         <item>DAGANZO C.B.</item>
         <item>BALONCESTO ARISTOS</item>
     </string-array>
+
+    <string-array name="primera_autonomica_a_nombres_array">
+        <item>BALONCESTO ARGANDA</item>
+        <item>BALONCESTO NAVALCARNERO</item>
+        <item>BALONCESTO POZUELO</item>
+        <item>COLMENAR VIEJO C.B.</item>
+        <item>LICEO FRANCES</item>
+        <item>BALONCESTO ALCORCON</item>
+        <item>CENTRO DEPORTIVO VALLECAS</item>
+        <item>DISTRITO OLIMPICO</item>
+        <item>BALONCESTO LEGANES</item>
+        <item>CUBAS C.D.</item>
+        <item>OLIMPICO 64</item>
+        <item>BOADILLA DEL MONTE A.D.C.</item>
+    </string-array>
 </resources>

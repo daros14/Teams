@@ -16,4 +16,19 @@
         <item>Naranja / Negra</item>
         <item>Amarilla / Negra</item>
     </string-array>
+
+    <string-array name="primera_autonomica_a_jerseys_array">
+        <item>Azul / Blanca</item>
+        <item>Verde / Negra</item>
+        <item>Morada / Amarilla</item>
+        <item>Roja / Blanca</item>
+        <item>Amarilla / Verde</item>
+        <item>Verde / </item>
+        <item>Azul / Blanca</item>
+        <item>Amarilla / Verde</item>
+        <item>Blanca / Azul</item>
+        <item>Roja / Blanca</item>
+        <item>Naranja / Negra</item>
+        <item>Amarilla / Negra</item>
+    </string-array>
 </resources>

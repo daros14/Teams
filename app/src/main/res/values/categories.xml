@@ -5,9 +5,9 @@
     <string-array name="categories">
         <item>1ª Nacional</item>
         <item>1ª Autonomica A</item>
-        <item>1ª Autonomica B</item>
+        <!--<item>1ª Autonomica B</item>
         <item>2ª Autonomica A</item>
-        <item>2ª Autonomica B</item>
+        <item>2ª Autonomica B</item>-->
     </string-array>
 
 </resources>
